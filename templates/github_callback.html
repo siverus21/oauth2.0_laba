@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}GitHub Callback{% endblock %}
+
+{% block content %}
+<div class="change-block">
+    <h1 class="change-block__title">Здравствуйте, {{ user_info.login }}!</h1>
+    <h2>Информация профиля:</h2>
+    <ul>
+        <li><strong>ID:</strong> {{ user_info.id }}</li>
+        <li><strong>Имя пользователя:</strong> {{ user_info.login }}</li>
+        <li><strong>Имя:</strong> {{ user_info.name if user_info.name else 'Не указано' }}</li>
+        <li><strong>Электронная почта:</strong> {{ user_info.email if user_info.email else 'Не указана' }}</li>
+        <li><strong>Биография:</strong> {{ user_info.bio if user_info.bio else 'Не указана' }}</li>
+        <li><strong>Местоположение:</strong> {{ user_info.location if user_info.location else 'Не указано' }}</li>
+        <li><strong>Аватар:</strong> <img src="{{ user_info.avatar_url }}" alt="Avatar" style="width: 150px; height: 150px;"></li>
+    </ul>
+    <div class="change-block__elements">
+        <a class="change-block__item change-block__item_small" href="/">На главную</a>
+        <a class="change-block__item" href="{{ url_for('github_logout') }}">Выйти из GitHub</a>
+    </div>
+</div>
+{% endblock %}

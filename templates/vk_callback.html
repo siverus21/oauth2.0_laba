@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}VK Callback{% endblock %}
+
+{% block content %}
+<div class="change-block">
+    <h1 class="change-block__title">Здравствуйте, {{ user_name }}!</h1>
+    <h2>Информация профиля:</h2>
+    <ul>
+        {% for key, value in profile_data.items() %}
+            <li><strong>{{ key }}:</strong> {{ value }}</li>
+        {% endfor %}
+    </ul>
+    <div class="change-block__elements">
+        <a class="change-block__item" href="/">На главную</a>
+        <a class="change-block__item" href="{{ url_for('vk_logout') }}">Выйти из VK</a>
+    </div>
+</div>
+{% endblock %}

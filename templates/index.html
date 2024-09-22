@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+<div class="change-block">
+    <h1 class="change-block__title">OAuth 2.0 для<br>VK и GitHub</h1>
+    <div class="change-block__elements">
+        <a class="change-block__item {% if vk_logged_in %}change-block__item_green{% endif %}" href="/vk/login">Войти через VK</a><br>
+        <a class="change-block__item {% if github_logged_in %}change-block__item_green{% endif %}" href="/github/login">Войти через GitHub</a>
+    </div>
+</div>
+{% endblock %}
